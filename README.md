@@ -1,4 +1,4 @@
-# NFHS District Health Clusters
+\# NFHS District Health Clusters
 
 Unsupervised clustering of Indian districts using indicators from the **National Family Health Survey (NFHS-5)**. The pipeline cleans the raw district-level survey data, reduces redundant features, and groups districts into six health/development clusters using K-Means, with PCA used for visualization.
 
@@ -73,16 +73,20 @@ python nfhs_analysis.py
 3. Output: `NFHS_District_Clusters.csv`, plus the PCA scatter plot and cluster-count bar chart shown on screen.
 
 ## Repository structure
+
+```
 .
 ├── nfhs_analysis.py                    # cleaning, feature selection, clustering, PCA
 ├── NFHS_5.csv                          # raw input data (not included — add your own)
 ├── NFHS_District_Clusters.csv          # output: districts with cluster assignments
 └── india_district_clusters_map.html    # interactive district-level map of the clusters
+```
+
+The HTML file is a standalone, self-contained interactive map (no build step or server needed — just open it in a browser). It plots each district colored by its assigned cluster, with hover tooltips, search, and click-to-pin details.
 
 ## Notes / caveats
 
 - Correlation-based feature dropping and the 30%-missingness column cutoff are threshold choices made in this script; adjust them if you want a stricter or looser feature set.
 - `k = 6` was chosen via the elbow method (see the commented-out code in the script) rather than a fixed assumption — re-run that block if you'd like to re-validate the choice on updated data.
 - Cluster numbering (0–5) is arbitrary and can change between runs/seeds; always join on `Cluster_Name` or re-derive it if you change `random_state` or `k`.
-
 
