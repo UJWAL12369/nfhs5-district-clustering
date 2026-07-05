@@ -73,13 +73,11 @@ python nfhs_analysis.py
 3. Output: `NFHS_District_Clusters.csv`, plus the PCA scatter plot and cluster-count bar chart shown on screen.
 
 ## Repository structure
-
-```
 .
-├── nfhs_analysis.py            # cleaning, feature selection, clustering, PCA
-├── NFHS_5.csv                  # raw input data (not included — add your own)
-└── NFHS_District_Clusters.csv  # output: districts with cluster assignments
-```
+├── nfhs_analysis.py                    # cleaning, feature selection, clustering, PCA
+├── NFHS_5.csv                          # raw input data (not included — add your own)
+├── NFHS_District_Clusters.csv          # output: districts with cluster assignments
+└── india_district_clusters_map.html    # interactive district-level map of the clusters
 
 ## Notes / caveats
 
@@ -87,6 +85,4 @@ python nfhs_analysis.py
 - `k = 6` was chosen via the elbow method (see the commented-out code in the script) rather than a fixed assumption — re-run that block if you'd like to re-validate the choice on updated data.
 - Cluster numbering (0–5) is arbitrary and can change between runs/seeds; always join on `Cluster_Name` or re-derive it if you change `random_state` or `k`.
 
-## License
 
-Add a license of your choice (MIT is a common default for research/analysis scripts like this).
